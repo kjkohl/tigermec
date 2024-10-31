@@ -119,14 +119,6 @@ form button:hover {
 }
 
 ul.course-list {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-}
-
-ul.course-list li {
-    background: #f9f9f9; /* Light background for list items */
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style-type: disc; /* Bullet points */
+    margin-left: 20px;
 }
