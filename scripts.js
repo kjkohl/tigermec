@@ -21,12 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle interest form submission
     document.getElementById('interestForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        const formData = new FormData(this);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            message: formData.get('message'),
+        const formData = {
+            name: this.name.value,
+            email: this.email.value,
+            phone: this.phone.value,
+            message: this.message.value,
         };
 
         try {
@@ -35,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(formData)
             });
 
             const result = await response.json();
-            if (result.result === "success") {
+            if (result.result === "Success") {
                 alert('Interest form submitted successfully!');
                 this.reset(); // Reset the form after submission
             } else {
@@ -54,14 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle order form submission
     document.getElementById('orderForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        const formData = new FormData(this);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone'),
-            item: formData.get('item'),
-            dimensions: formData.get('dimensions'),
-            specialInstructions: formData.get('specialInstructions'),
+        const formData = {
+            name: this.name.value,
+            email: this.email.value,
+            phone: this.phone.value,
+            item: this.item.value,
+            dimensions: this.dimensions.value,
+            specialInstructions: this.specialInstructions.value,
         };
 
         try {
@@ -70,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(formData)
             });
 
             const result = await response.json();
-            if (result.result === "success") {
+            if (result.result === "Success") {
                 alert('Order submitted successfully!');
                 this.reset(); // Reset the form after submission
             } else {
