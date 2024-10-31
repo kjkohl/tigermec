@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manufacturing Engineering</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
@@ -23,58 +23,70 @@
     </header>
 
     <main>
+        <!-- Home Section -->
         <section id="home">
             <h2>Welcome to CTE Course</h2>
-            <p class="fade-in">Empowering the next generation with hands-on skills in <strong>CAD</strong>, <strong>milling</strong>, <strong>lathe work</strong>, <strong>3D printing</strong>, and <strong>plasma cutting</strong>.</p>
+            <p>At the Massillon CTE Course, we empower the next generation with hands-on skills in various fields of manufacturing and engineering.</p>
+            <p>Join us to explore:</p>
+            <ul>
+                <li>Advanced Computer-Aided Design (CAD)</li>
+                <li>Precision Milling and Lathe Operations</li>
+                <li>3D Printing Innovations</li>
+                <li>Metal Fabrication Techniques with Plasma Cutting</li>
+            </ul>
         </section>
 
+        <!-- About Us Section -->
         <section id="about">
             <h2>About Us</h2>
-            <p class="fade-in">Our mission is to equip students with practical skills and knowledge to prepare them for future careers in technology and engineering. We focus on innovative teaching methods and hands-on learning experiences to inspire creativity and critical thinking.</p>
-            <p class="fade-in">Our dedicated instructors ensure that every student has the opportunity to excel in a safe and supportive environment.</p>
+            <p>Our mission is to equip students with practical skills and knowledge that will prepare them for successful careers in technology and engineering.</p>
+            <p>We employ innovative teaching methods and hands-on learning experiences to inspire creativity and critical thinking.</p>
+            <p>Our dedicated instructor ensures that every student has the opportunity to excel in a safe and supportive environment.</p>
         </section>
 
+        <!-- What We Offer Section -->
         <section id="courses">
             <h2>What We Offer</h2>
-            <ul class="course-list fade-in">
-                <li><strong>Computer-Aided Design (CAD)</strong> - Learn to create detailed drawings and models using advanced software.</li>
-                <li><strong>Milling Machine Operations</strong> - Gain hands-on experience with milling machines and learn machining techniques.</li>
-                <li><strong>Lathe Work</strong> - Discover the intricacies of lathe operations and the production of precision parts.</li>
-                <li><strong>3D Printing</strong> - Explore the world of additive manufacturing and design your own 3D objects.</li>
-                <li><strong>Plasma Cutting</strong> - Learn to use plasma cutters for metal fabrication and design projects.</li>
+            <ul class="course-list">
+                <li><strong>Computer-Aided Design (CAD)</strong>: Learn to create detailed drawings and models using industry-standard software. This course emphasizes design principles and technical drawings.</li>
+                <li><strong>Milling Machine Operations</strong>: Gain hands-on experience with milling machines, learning essential machining techniques for precise manufacturing.</li>
+                <li><strong>Lathe Work</strong>: Discover the intricacies of lathe operations and the production of precision parts, focusing on accuracy and safety.</li>
+                <li><strong>3D Printing</strong>: Explore additive manufacturing and the design of 3D objects. Students will learn software and techniques for prototyping.</li>
+                <li><strong>Plasma Cutting</strong>: Learn to use plasma cutters for metal fabrication and artistic projects. Emphasis is placed on safety and creative design.</li>
             </ul>
-            <p class="fade-in">These are designed to provide in-depth knowledge and practical skills in a supportive environment, preparing students for various careers in the manufacturing and design fields.</p>
+            <p>These courses are designed to provide in-depth knowledge and practical skills, preparing students for various careers in the manufacturing and design fields.</p>
         </section>
 
+        <!-- Student Interest Form Section -->
         <section id="interest-form">
             <h2>Student Interest Form</h2>
-            <p class="fade-in">If you're interested in joining our program or want more information, please fill out the form below:</p>
+            <p>If you're interested in joining our program or would like more information, please fill out the form below:</p>
             <form id="interestForm">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="What are you interested in? (Please provide details...)" required></textarea>
                 <input type="text" name="phone" placeholder="Your Phone Number" required>
+                <textarea name="message" placeholder="What are you interested in? (Please provide details...)" required></textarea>
                 <button type="submit">Submit</button>
             </form>
         </section>
 
+        <!-- Order Form Section -->
         <section id="order-form">
-            <h2>Order Form for Custom Items</h2>
-            <p class="fade-in">To place an order for custom items, please fill out the form below:</p>
+            <h2>Order Form</h2>
+            <p>To place an order for custom items, please fill out the form below:</p>
             <form id="orderForm">
-                <input type="text" name="name" placeholder="Your Full Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="phone" placeholder="Your Phone Number" required>
                 <input type="text" name="item" placeholder="Item Name" required>
+                <input type="number" name="quantity" placeholder="Quantity" required>
                 <input type="text" name="dimensions" placeholder="Dimensions (if applicable)" required>
                 <input type="text" name="specialInstructions" placeholder="Special Instructions (if any)">
                 <button type="submit">Order</button>
             </form>
         </section>
 
-         <section id="seniors">
+        <!-- Seniors & Staff Section -->
+        <section id="seniors">
             <h2>Seniors & Staff</h2>
-            <p class="fade-in">Meet our dedicated team who make the CTE program a success:</p>
+            <p>Meet our dedicated team who make the CTE program a success:</p>
             <ul>
                 <li><strong>Mr. Sam Studer</strong> (Teacher)</li>
                 <li><strong>Lucas Fisk</strong></li>
@@ -85,11 +97,9 @@
             </ul>
         </section>
     </main>
-
+    
     <footer>
-        <p>&copy; 2024 Massillon Washington High School</p>
+        <p>&copy; 2024 Massillon CTE Course. All Rights Reserved.</p>
     </footer>
-
-    <script src="scripts.js"></script>
 </body>
 </html>
