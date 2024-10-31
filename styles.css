@@ -6,20 +6,21 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background: linear-gradient(135deg, #ff6f20, #ffcc00);
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 header {
-    background-color: #333;
-    color: #f5f5f5;
+    background-color: #000;
+    color: #ffcc00;
     padding: 20px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s;
 }
 
 nav ul {
@@ -34,16 +35,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #f5f5f5;
+    color: #ffcc00;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 8px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #ffcc00;
+    color: #000;
 }
 
 main {
@@ -67,11 +68,33 @@ section.active {
     opacity: 1;
 }
 
+h2 {
+    margin-bottom: 20px;
+    color: #ff6f20;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ffcc00;
+    margin-top: 10px;
+    transition: width 0.3s;
+}
+
+h2:hover::after {
+    width: 100px;
+}
+
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #333;
-    color: #f5f5f5;
+    background-color: #000;
+    color: #ffcc00;
 }
 
 form {
@@ -83,28 +106,45 @@ form input,
 form textarea {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #ffcc00;
     border-radius: 5px;
     transition: border-color 0.3s;
 }
 
 form input:focus,
 form textarea:focus {
-    border-color: #333;
+    border-color: #000;
     outline: none;
 }
 
 form button {
-    background-color: #333;
-    color: #f5f5f5;
+    background-color: #000;
+    color: #ffcc00;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 form button:hover {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #ffcc00;
+    color: #000;
+    transform: scale(1.05);
+}
+
+.course-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.course-list li {
+    margin: 10px 0;
+    position: relative;
+}
+
+.course-list li::before {
+    content: '✔️';
+    position: absolute;
+    left: -20px;
 }
