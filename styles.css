@@ -5,22 +5,21 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f3f7f8;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark text for readability */
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
 header {
-    background-color: #222; 
-    color: #ffb400;
+    background-color: #000; /* Dark header */
+    color: #ffcc00; /* Accent color */
     padding: 20px;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
 }
 
 nav ul {
@@ -35,47 +34,42 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ffb400;
+    color: #ffcc00;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.4s, color 0.4s;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #ffb400;
-    color: #222;
+    background-color: #ffcc00;
+    color: #000;
 }
 
 main {
     padding: 20px;
 }
 
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in-section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 section {
     margin: 20px auto;
     padding: 40px;
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background for sections */
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Initial opacity for fade-in effect */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+section.active {
+    opacity: 1; /* Fade-in effect */
 }
 
 h2 {
-    color: #333;
+    margin-bottom: 20px;
+    color: #333; /* Dark text for headings */
     font-weight: bold;
     position: relative;
-    margin-bottom: 20px;
 }
 
 h2::after {
@@ -83,21 +77,26 @@ h2::after {
     display: block;
     width: 60px;
     height: 4px;
-    background: #ffb400;
+    background: #ffcc00; /* Accent color */
     margin-top: 10px;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #222;
-    color: #ffb400;
+    background-color: #000; /* Dark footer */
+    color: #ffcc00; /* Accent color */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 form input,
 form textarea {
     margin-bottom: 15px;
-    padding: 15px;
+    padding: 15px; /* Larger padding for better usability */
     border: 2px solid #ccc;
     border-radius: 5px;
     transition: border-color 0.3s;
@@ -105,13 +104,14 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-    border-color: #ffb400;
+    border-color: #ffcc00; /* Accent color on focus */
+    outline: none;
 }
 
 form button {
-    background-color: #222;
-    color: #ffb400;
-    padding: 15px;
+    background-color: #000; /* Button background */
+    color: #ffcc00; /* Button text color */
+    padding: 15px; /* Larger button for better usability */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -119,20 +119,27 @@ form button {
 }
 
 form button:hover {
-    background-color: #ffb400;
-    color: #222;
-    transform: translateY(-2px);
+    background-color: #ffcc00; /* Button hover */
+    color: #000; /* Button text color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 ul.course-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
 }
 
 ul.course-list li {
-    background: #f9f9f9;
+    background: #f9f9f9; /* Light background for list items */
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.fade-in {
+    transition: opacity 1s ease-in-out; /* Smooth transition */
+    opacity: 0; /* Initial state hidden */
+}
+
+/* Add more styles as needed */
