@@ -4,9 +4,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
         
-        // Add active class for animation
-        targetSection.classList.add('active');
-        
+        // Scroll to the target section
         targetSection.scrollIntoView({
             behavior: 'smooth'
         });
@@ -31,3 +29,24 @@ function sendForm(formData) {
     alert("Your form has been submitted!"); // Placeholder for actual submission
     this.reset(); // Reset the form after submission
 }
+
+// Intersection Observer for section visibility
+const sections = document.querySelectorAll('section');
+
+const options = {
+    root: null,
+    threshold: 0.1,
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
+    });
+}, options);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
