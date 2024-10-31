@@ -8,6 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #FFA500; /* Orange background */
     color: #000;
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
 header {
@@ -36,6 +37,10 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #FFF; /* Change color on hover */
+}
+
+main {
+    padding: 20px;
 }
 
 section {
