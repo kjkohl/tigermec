@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #ffffff; /* Neutral background */
+    background-color: #f4f4f4; /* Light grey background for better visibility */
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -54,7 +54,7 @@ section {
     margin: 20px auto;
     padding: 40px;
     border-radius: 10px;
-    background-color: #f9f9f9; /* Light background for sections */
+    background-color: #ffffff; /* White background for sections */
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transform: translateY(20px);
@@ -132,18 +132,9 @@ form button:hover {
 
 .fade-in {
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in-out;
 }
 
 .fade-in.active {
     opacity: 1;
-}
-
-.course-list {
-    list-style: none;
-    padding-left: 20px;
-}
-
-.course-list li {
-    margin: 10px 0;
 }
