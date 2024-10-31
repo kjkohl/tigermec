@@ -1,35 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.fade-in-section');
-    const options = {
-        root: null,
-        threshold: 0.1,
-    };
+    const interestForm = document.getElementById('interestForm');
+    const orderForm = document.getElementById('orderForm');
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
+    // Change this to your Google Sheets Web App URL
+    const SHEET_URL = 'YOUR_GOOGLE_SHEET_WEB_APP_URL';
 
-    sections.forEach(section => {
-        observer.observe(section);
+    // Handle the interest form submission
+    interestForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(interestForm);
+        const data = {
+            timestamp: new Date().toLocaleString(), // Timestamp of submission
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            item: '', // No item for interest form
+            dimensions: '', // No dimensions for interest form
+            specialInstructions: '', // No special instructions for interest form
+        };
+        sendData(data, SHEET_URL);
+        interestForm.reset();
     });
 
-    // Handle form submissions
-    document.getElementById('interestForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        console.log('Interest Form Data:', Object.fromEntries(formData)); // Replace with actual data handling
-        this.reset(); // Reset the form after submission
+    // Handle the order form submission
+    orderForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(orderForm);
+        const data = {
+            timestamp: new Date().toLocaleString(), // Timestamp of submission
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            item: formData.get('item'),
+            dimensions: formData.get('dimensions'),
+            specialInstructions: formData.get('specialInstructions'),
+        };
+        sendData(data, SHEET_URL);
+        orderForm.reset();
     });
 
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        console.log('Order Form Data:', Object.fromEntries(formData)); // Replace with actual data handling
-        this.reset(); // Reset the form after submission
-    });
+    // Function to send data to Google Sheets
+    function sendData(data, url) {
+        fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(data),
+        })
+        .then(response => console.log('Success:', response))
+        .catch((error) => console.error('Error:', error));
+    }
 });
