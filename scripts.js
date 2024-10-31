@@ -4,7 +4,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
         
-        // Scroll to the section
         targetSection.scrollIntoView({
             behavior: 'smooth'
         });
@@ -28,6 +27,5 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 function sendEmail(formData) {
     alert("Your form has been submitted!");
     // Here you can implement the actual email sending logic using a backend service or API
-    // e.g., using Fetch API to send formData to your server
     this.reset(); // Reset the form after submission
 }
