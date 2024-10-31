@@ -36,7 +36,7 @@ document.getElementById('interestForm').addEventListener('submit', function(even
     };
 
     // Send data to Google Apps Script (replace with your actual URL)
-    fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+    fetch('https://script.google.com/macros/s/AKfycbw9EzutFhLNPXFj33sYo9a_2KwJOPBGXz34I-9L-mdKWdfCsOOetg2NoRskR8ydLdP3/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
