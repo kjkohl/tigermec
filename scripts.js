@@ -7,34 +7,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Handle form submissions
-document.getElementById('interestForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    sendForm(formData);
-});
-
-document.getElementById('orderForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    sendForm(formData);
-});
-
-// Simulated form submission (to Google Sheets or similar)
-function sendForm(formData) {
-    alert("Your form has been submitted!"); // Placeholder for actual submission
-    this.reset(); // Reset the form after submission
-}
-
-// Intersection Observer for section visibility
+// Fade-in effect on scroll
 const sections = document.querySelectorAll('section');
-
 const options = {
     root: null,
     threshold: 0.1,
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
@@ -45,4 +25,17 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => {
     observer.observe(section);
+});
+
+// Handle form submissions (no email, just log for now)
+document.getElementById('interestForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    console.log('Interest Form Data:', Object.fromEntries(formData)); // Replace with actual data handling
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    console.log('Order Form Data:', Object.fromEntries(formData)); // Replace with actual data handling
 });
