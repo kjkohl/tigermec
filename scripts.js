@@ -36,7 +36,7 @@ document.getElementById('interestForm').addEventListener('submit', function(even
     };
 
     // Send data to Google Apps Script (replace with your actual URL)
-    fetch('https://script.google.com/macros/s/AKfycbw9EzutFhLNPXFj33sYo9a_2KwJOPBGXz34I-9L-mdKWdfCsOOetg2NoRskR8ydLdP3/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbypslClUHjD4Utg6kZ4QaU7Z7-5OfVfOrk_eUdQbo4KUQ02Qmy_8EWyKomg_llRnmX_/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
     };
 
     // Send data to Google Apps Script (replace with your actual URL)
-    fetch('https://script.google.com/macros/s/AKfycbw9EzutFhLNPXFj33sYo9a_2KwJOPBGXz34I-9L-mdKWdfCsOOetg2NoRskR8ydLdP3/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbypslClUHjD4Utg6kZ4QaU7Z7-5OfVfOrk_eUdQbo4KUQ02Qmy_8EWyKomg_llRnmX_/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
