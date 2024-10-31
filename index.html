@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script>
         (function(){
-            emailjs.init('mNyyJ122SS3dJ1aHl'); // Replace with your actual API Key
+            emailjs.init('mNyyJ122SS3dJ1aHl'); // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
         })();
     </script>
 </head>
@@ -65,7 +65,7 @@
         </section>
 
         <section id="order-form">
-            <h2>Order Form for 3D Objects & Metal Decor Signs</h2>
+            <h2>Order Form</h2>
             <p>To place an order for custom items, please fill out the form below:</p>
             <form id="orderForm">
                 <input type="text" name="name" placeholder="Your Full Name" required>
@@ -117,6 +117,12 @@
                 observer.observe(section);
             });
 
+            // Common function to run after successful submission
+            function handleSubmissionSuccess(formType) {
+                alert(`${formType} submitted successfully!`);
+                console.log(`${formType} data sent to EmailJS`);
+            }
+
             // Handle interest form submission
             document.getElementById('interestForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -129,8 +135,8 @@
                 };
 
                 try {
-                    const response = await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
-                    alert('Interest form submitted successfully!');
+                    await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
+                    handleSubmissionSuccess('Interest Form');
                     this.reset(); // Reset the form after submission
                 } catch (error) {
                     console.error('Error:', error);
@@ -152,8 +158,8 @@
                 };
 
                 try {
-                    const response = await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
-                    alert('Order submitted successfully!');
+                    await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
+                    handleSubmissionSuccess('Order Form');
                     this.reset(); // Reset the form after submission
                 } catch (error) {
                     console.error('Error:', error);
