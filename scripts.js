@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    // Handle form submissions (no email, just log for now)
+    // Handle form submissions
     document.getElementById('interestForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(this);
