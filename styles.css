@@ -6,8 +6,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f4f4f4; /* Light grey background for better visibility */
-    color: #333;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark text for readability */
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -57,19 +57,17 @@ section {
     background-color: #ffffff; /* White background for sections */
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.5s ease;
+    opacity: 0; /* Initial opacity for fade-in effect */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
 }
 
 section.active {
-    transform: translateY(0);
-    opacity: 1;
+    opacity: 1; /* Fade-in effect */
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #333; /* Dark text for headings */
     font-weight: bold;
     position: relative;
 }
@@ -79,19 +77,15 @@ h2::after {
     display: block;
     width: 60px;
     height: 4px;
-    background: #ffcc00;
+    background: #ffcc00; /* Accent color */
     margin-top: 10px;
-}
-
-h2:hover::after {
-    width: 100px;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #000;
-    color: #ffcc00;
+    background-color: #000; /* Dark footer */
+    color: #ffcc00; /* Accent color */
 }
 
 form {
@@ -110,13 +104,13 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-    border-color: #ffcc00;
+    border-color: #ffcc00; /* Accent color on focus */
     outline: none;
 }
 
 form button {
-    background-color: #000;
-    color: #ffcc00;
+    background-color: #000; /* Button background */
+    color: #ffcc00; /* Button text color */
     padding: 15px; /* Larger button for better usability */
     border: none;
     border-radius: 5px;
@@ -125,16 +119,24 @@ form button {
 }
 
 form button:hover {
-    background-color: #ffcc00;
-    color: #000;
-    transform: scale(1.05);
+    background-color: #ffcc00; /* Button hover */
+    color: #000; /* Button text color on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+ul.course-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+ul.course-list li {
+    background: #f9f9f9; /* Light background for list items */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .fade-in {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.fade-in.active {
-    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Smooth fade-in transition */
 }
