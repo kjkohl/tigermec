@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('.fade-in-section');
     const options = {
         root: null,
         threshold: 0.1,
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                entry.target.classList.add('show');
                 observer.unobserve(entry.target);
             }
         });
