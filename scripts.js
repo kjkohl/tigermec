@@ -4,7 +4,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
         
-        targetSection.classList.add('active');
+        // Scroll to the section
         targetSection.scrollIntoView({
             behavior: 'smooth'
         });
