@@ -4,28 +4,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
         
+        // Add active class for animation
+        targetSection.classList.add('active');
+        
         targetSection.scrollIntoView({
             behavior: 'smooth'
         });
     });
 });
 
-// Form submission handling
+// Handle form submissions
 document.getElementById('interestForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
-    sendEmail(formData);
+    sendForm(formData);
 });
 
 document.getElementById('orderForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
-    sendEmail(formData);
+    sendForm(formData);
 });
 
-// Simulated email sending function (replace with actual service)
-function sendEmail(formData) {
-    alert("Your form has been submitted!");
-    // Here you can implement the actual email sending logic using a backend service or API
+// Simulated form submission (to Google Sheets or similar)
+function sendForm(formData) {
+    alert("Your form has been submitted!"); // Placeholder for actual submission
     this.reset(); // Reset the form after submission
 }
