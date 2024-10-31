@@ -6,6 +6,12 @@
     <title>Massillon CTE Course - Tiger MEC</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('mNyyJ122SS3dJ1aHl'); // Replace with your actual API Key
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -77,11 +83,11 @@
             <p>Meet our dedicated team who make the CTE program a success:</p>
             <ul>
                 <li><strong>Mr. Sam Studer</strong> (Teacher)</li>
-                <li><strong>Lucas Fisk</strong> - Aspiring firefighter.</li>
-                <li><strong>Marina Greynolds</strong> - Senior pursuing a career in biomedical engineering.</li>
-                <li><strong>Atticus Kirchmeyer</strong> - Senior interested in computer programming.</li>
-                <li><strong>Ethan Zumbro</strong> - Band member and creative arts enthusiast.</li>
-                <li><strong>Hayden Nussbaum</strong> - Co-op student gaining real-world experience.</li>
+                <li><strong>Lucas Fisk</strong></li>
+                <li><strong>Marina Greynolds</strong></li>
+                <li><strong>Atticus Kirchmeyer</strong></li>
+                <li><strong>Ethan Zumbro</strong></li>
+                <li><strong>Hayden Nussbaum</strong></li>
             </ul>
         </section>
     </main>
@@ -123,21 +129,9 @@
                 };
 
                 try {
-                    const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
-
-                    const result = await response.json();
-                    if (result.result === "Success") {
-                        alert('Interest form submitted successfully!');
-                        this.reset(); // Reset the form after submission
-                    } else {
-                        throw new Error('Submission failed');
-                    }
+                    const response = await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
+                    alert('Interest form submitted successfully!');
+                    this.reset(); // Reset the form after submission
                 } catch (error) {
                     console.error('Error:', error);
                     alert('There was an error submitting your interest form. Please try again.');
@@ -158,21 +152,9 @@
                 };
 
                 try {
-                    const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(data)
-                    });
-
-                    const result = await response.json();
-                    if (result.result === "Success") {
-                        alert('Order submitted successfully!');
-                        this.reset(); // Reset the form after submission
-                    } else {
-                        throw new Error('Submission failed');
-                    }
+                    const response = await emailjs.send('service_3crc41y', 'template_m3536ow', data, 'mNyyJ122SS3dJ1aHl');
+                    alert('Order submitted successfully!');
+                    this.reset(); // Reset the form after submission
                 } catch (error) {
                     console.error('Error:', error);
                     alert('There was an error submitting your order. Please try again.');
