@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Massillon CTE Course - Tiger MEC</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -49,7 +49,7 @@
         <section id="interest-form">
             <h2>Student Interest Form</h2>
             <p>If you're interested in joining our program or want more information, please fill out the form below:</p>
-            <form id="interestForm" netlify>
+            <form id="interestForm">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <input type="text" name="phone" placeholder="Your Phone Number" required>
@@ -61,7 +61,7 @@
         <section id="order-form">
             <h2>Order Form for 3D Objects & Metal Decor Signs</h2>
             <p>To place an order for custom items, please fill out the form below:</p>
-            <form id="orderForm" netlify>
+            <form id="orderForm">
                 <input type="text" name="name" placeholder="Your Full Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <input type="text" name="phone" placeholder="Your Phone Number" required>
@@ -77,11 +77,11 @@
             <p>Meet our dedicated team who make the CTE program a success:</p>
             <ul>
                 <li><strong>Mr. Sam Studer</strong> (Teacher)</li>
-                <li><strong>Lucas Fisk</strong></li>
-                <li><strong>Marina Greynolds</strong></li>
-                <li><strong>Atticus Kirchmeyer</strong></li>
-                <li><strong>Ethan Zumbro</strong></li>
-                <li><strong>Hayden Nussbaum</strong></li>
+                <li><strong>Lucas Fisk</strong> - Aspiring firefighter.</li>
+                <li><strong>Marina Greynolds</strong> - Senior pursuing a career in biomedical engineering.</li>
+                <li><strong>Atticus Kirchmeyer</strong> - Senior interested in computer programming.</li>
+                <li><strong>Ethan Zumbro</strong> - Band member and creative arts enthusiast.</li>
+                <li><strong>Hayden Nussbaum</strong> - Co-op student gaining real-world experience.</li>
             </ul>
         </section>
     </main>
@@ -90,6 +90,95 @@
         <p>&copy; 2024 Massillon Washington High School</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const options = {
+                root: null,
+                threshold: 0.1,
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Handle interest form submission
+            document.getElementById('interestForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message'),
+                };
+
+                try {
+                    const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    if (result.result === "Success") {
+                        alert('Interest form submitted successfully!');
+                        this.reset(); // Reset the form after submission
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your interest form. Please try again.');
+                }
+            });
+
+            // Handle order form submission
+            document.getElementById('orderForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    item: formData.get('item'),
+                    dimensions: formData.get('dimensions'),
+                    specialInstructions: formData.get('specialInstructions'),
+                };
+
+                try {
+                    const response = await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    if (result.result === "Success") {
+                        alert('Order submitted successfully!');
+                        this.reset(); // Reset the form after submission
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your order. Please try again.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
