@@ -57,12 +57,6 @@ section {
     background-color: #ffffff; /* White background for sections */
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* Initial opacity for fade-in effect */
-    transition: opacity 0.5s ease-in-out; /* Smooth transition */
-}
-
-section.active {
-    opacity: 1; /* Fade-in effect */
 }
 
 h2 {
@@ -136,10 +130,3 @@ ul.course-list li {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-.fade-in {
-    transition: opacity 1s ease-in-out; /* Smooth transition */
-    opacity: 0; /* Initial state hidden */
-}
-
-/* Add more styles as needed */
