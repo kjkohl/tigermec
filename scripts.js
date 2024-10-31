@@ -3,11 +3,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetSection = document.querySelector(this.getAttribute('href'));
-        
-        // Scroll to the target section
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
+        targetSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
